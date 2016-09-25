@@ -1,6 +1,8 @@
-# carlos_ircbot
+# Carlos
 
-V2.0.0
+V2.0.0 :
+The configuration is now in the config.ini file
+Run start.py to start the bot
 
 Carlos is a moderation IRC Bot. He can send public/private messages, actions and notices. The strings are french, it's up to you to translate.
 
