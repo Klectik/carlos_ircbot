@@ -12,7 +12,7 @@ import ircbot
 
 
 nick = "Carlos"
-description = "Vive le pesto."
+description = "Room moderation IRC bot"
 
 room = "#chan"
 server = "irc.yourhost.tld"
