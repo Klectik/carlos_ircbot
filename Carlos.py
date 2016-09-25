@@ -4,22 +4,23 @@
 # ===================================
 # Carlos, IRC Bot
 #
-# By Klectik. (www.klectik.tk)
+# By Klectik. (www.klectik.net)
 # ===================================
 
+import ConfigParser
 import irclib
 import ircbot
 
+# Parse config.ini
+config = ConfigParser.ConfigParser()
+config.read("config.ini")
 
-nick = "Carlos"
-description = "Room moderation IRC bot"
-
-room = "#chan"
-server = "irc.yourhost.tld"
-port = 6667
-
-password = "hackme"
-
+nick = config.get("Bot", "nick")
+description = config.get("Bot", "description")
+password = config.get("Bot", "password")
+room = config.get("Connection", "room")
+server = config.get("Connection", "server")
+port = int(config.get("Connection", "port"))
 
 class Carlos(ircbot.SingleServerIRCBot):
 	def __init__(self):
@@ -155,6 +156,3 @@ class Carlos(ircbot.SingleServerIRCBot):
 
 	def on_kick(self, serv, ev):
 		serv.join(room)
-
-if __name__ == "__main__":
-  Carlos().start()
