@@ -14,26 +14,26 @@ Carlos is an IRC robot written in Python with the *python-irclib* library by Joe
 
 ### Command list
 
-#### !help
-* Syntax: !help [!help | !topic | !mode | !say | !nick | !me | !notice]
-* Utility: !help command without argument shows the command list. Combined with a command, it shows informations about the command given as an argument.
+* !help
+    * Syntax: !help [!help | !topic | !mode | !say | !nick | !me | !notice]
+    * Utility: !help command without argument shows the command list. Combined with a command, it shows informations about the command given as an argument.
 
-* About the detailed syntax : brackets [] contains a choice between multiple elements splitted with |. Braces {} must be replaced. Example : [room | {user}] means that you have the choice between type exactly "room" or type a username.
-#### !topic
-* Syntax: !topic {new topic}
-* Utility: !topic replaces the topic with the new topic given as argument.
-#### !mode
-* Syntax: !mode [room | {user}] [+v | -v | +h | -h | +o | -o | +b [mask] | -b [mask]]
-* Utility: !mode sets or unsets a mode to an IRC entity.
-#### !say
-* Syntax: !say [room | {user}] {message}
-* Utility: !say sends a message to an IRC entity.
-#### !nick
-* Syntax: !nick {nickname}
-* Utility: !nick changes bot's nickname.
-#### !me
-* Syntax: !me [room | {user}] {action}
-* Utility: !me sends an action, and yes, that's perfectly useless.
-#### !notice
-* Syntax: !notice [room | {user}] {notice}
-* Utility: !notice sends a notice to an IRC entity.
+    * About the detailed syntax : brackets [] contains a choice between multiple elements splitted with |. Braces {} must be replaced. Example : [room | {user}] means that you have the choice between type exactly "room" or type a username.
+* !topic
+    * Syntax: !topic {new topic}
+    * Utility: !topic replaces the topic with the new topic given as argument.
+* !mode
+    * Syntax: !mode [room | {user}] [+v | -v | +h | -h | +o | -o | +b [mask] | -b [mask]]
+    * Utility: !mode sets or unsets a mode to an IRC entity.
+* !say
+    * Syntax: !say [room | {user}] {message}
+    * Utility: !say sends a message to an IRC entity.
+* !nick
+    * Syntax: !nick {nickname}
+    * Utility: !nick changes bot's nickname.
+* !me
+    * Syntax: !me [room | {user}] {action}
+    * Utility: !me sends an action, and yes, that's perfectly useless.
+* !notice
+    * Syntax: !notice [room | {user}] {notice}
+    * Utility: !notice sends a notice to an IRC entity.
