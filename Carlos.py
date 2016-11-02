@@ -41,10 +41,10 @@ class Carlos(ircbot.SingleServerIRCBot):
 		if message[-1] == password:
 
 			if not (message[0] in ["!help", "!topic", "!mode", "!say", "!nick", "!me", "!notice"]):
-				serv.privmsg(author, "Impossible de comprendre votre commande. Référez-vous à !help pour obtenir la liste des commandes que vous pouvez utiliser.")
+				serv.privmsg(author, "Unknown command. Please type !help to get the command list.")
 
 			if message[0] == "!help" and len(message) == 2:
-				serv.privmsg(author, "Voici les commandes que vous pouvez utiliser :")
+				serv.privmsg(author, "Command list :")
 				serv.privmsg(author, "!help")
 				serv.privmsg(author, "!topic")
 				serv.privmsg(author, "!mode")
@@ -52,44 +52,44 @@ class Carlos(ircbot.SingleServerIRCBot):
 				serv.privmsg(author, "!nick")
 				serv.privmsg(author, "!me")
 				serv.privmsg(author, "!notice")
-				serv.privmsg(author, "Pour avoir des détails (comme la syntaxe et l'utilité) sur une de ces commandes, entrez :")
-				serv.privmsg(author, "!help [!commande]")
+				serv.privmsg(author, "For further information (like syntax or utility) on one of these commands, type :")
+				serv.privmsg(author, "!help [!command]")
 
 			if message[0] == "!help" and message[1] == "!help":
 				serv.privmsg(author, "[!help]")
-				serv.privmsg(author, "    - Syntaxe : !help [!help | !topic | !mode | !say | !nick | !me | !notice]")
-				serv.privmsg(author, "    - Utilité : La commande !help utilisée seule permet de voir la liste des commandes. Combinée à l'un des paramètres ci-dessus, elle donne des détails sur l'utilisation de la commande précisée.")
-				serv.privmsg(author, "      Note sur la syntaxe des aides détaillées : les crochets [] signifient qu'il faut faire un choix entre les propositions séparées par des |. Les accolades {} signifient qu'il faut remplacer ce qui s'y trouve par autre chose. Exemple : [room | {utilisateur}] veut dire qu'il faut, à la place des crochets, soit mettre exactement \"room\" (sans guillemets), soit le nom d'un utilisateur.")
+				serv.privmsg(author, "    - Syntax : !help [!help | !topic | !mode | !say | !nick | !me | !notice]")
+				serv.privmsg(author, "    - Utility : !help command without argument shows the command list. Combined with a command, it shows informations about the command given as an argument.")
+				serv.privmsg(author, "      About the detailed syntax : brackets [] contains a choice between multiple elements splitted with |. Braces {} must be replaced. Example : [room | {user}] means that you have the choice between type exactly \"room\" or type a username.")
 
 			if message[0] == "!help" and message[1] == "!topic":
 				serv.privmsg(author, "[!topic]")
-				serv.privmsg(author, "    - Syntaxe : !topic {nouveau topic}")
-				serv.privmsg(author, "    - Utilité : La commande !topic permet de modifier le topic du salon par le nouveau topic précisé en paramètre.")
+				serv.privmsg(author, "    - Syntax : !topic {new topic}")
+				serv.privmsg(author, "    - Utility : !topic replaces the topic with the new topic given as argument.")
 
 			if message[0] == "!help" and message[1] == "!mode":
 				serv.privmsg(author, "[!mode]")
-				serv.privmsg(author, "    - Syntaxe : !mode {utilisateur} [+v | -v | +h | -h | +o | -o | +b [masque] | -b [masque]]")
-				serv.privmsg(author, "    - Utilité : La commande !mode permet d'attribuer ou de retirer un mode à un utilisateur.")
+				serv.privmsg(author, "    - Syntax : !mode [room | {user}] [+v | -v | +h | -h | +o | -o | +b [mask] | -b [mask]]")
+				serv.privmsg(author, "    - Utility : !mode sets or unsets a mode to an IRC entity.")
 
 			if message[0] == "!help" and message[1] == "!say":
 				serv.privmsg(author, "[!say]")
-				serv.privmsg(author, "    - Syntaxe : !say [room | {utilisateur}] {message}")
-				serv.privmsg(author, "    - Utilité : La commande !say permet d'envoyer un message à l'entité précisée en argument.")
+				serv.privmsg(author, "    - Syntax : !say [room | {user}] {message}")
+				serv.privmsg(author, "    - Utility : !say sends a message to an IRC entity.")
 
 			if message[0] == "!help" and message[1] == "!nick":
 				serv.privmsg(author, "[!nick]")
-				serv.privmsg(author, "    - Syntaxe : !nick {pseudonyme}")
-				serv.privmsg(author, "    - Utilité : La commande !nick permet de changer le pseudonyme du bot.")
+				serv.privmsg(author, "    - Syntax : !nick {nickname}")
+				serv.privmsg(author, "    - Utility : !nick changes bot's nickname.")
 
 			if message[0] == "!help" and message[1] == "!me":
 				serv.privmsg(author, "[!me]")
-				serv.privmsg(author, "    - Syntaxe : !me [room | {utilisateur}] {action}")
-				serv.privmsg(author, "    - Utilité : La commande !me permet de faire l'équivalent d'un /me dans un client classique.")
+				serv.privmsg(author, "    - Syntax : !me [room | {user}] {action}")
+				serv.privmsg(author, "    - Utility : !me sends an action, and yes, that's perfectly useless.")
 
 			if message[0] == "!help" and message[1] == "!notice":
 				serv.privmsg(author, "[!notice]")
-				serv.privmsg(author, "    - Syntaxe : !notice [room | {utilisateur}] {notice}")
-				serv.privmsg(author, "    - Utilité : La commande !notice permet d'envoyer une notice au premier argument.")
+				serv.privmsg(author, "    - Syntax : !notice [room | {user}] {notice}")
+				serv.privmsg(author, "    - Utility : !notice sends a notice to an IRC entity.")
 
 			if message[0] == "!topic":
 				if len(message[1:-1]) > 0:
@@ -97,16 +97,16 @@ class Carlos(ircbot.SingleServerIRCBot):
 					for elem in message[1:-1]:
 						newtopic+=elem+" "
 					serv.topic(room, newtopic)
-					serv.privmsg(author, "Le topic a été changé en " + newtopic)
+					serv.privmsg(author, "Topic has been replaced by " + newtopic)
 				else:
-					serv.privmsg(author, "Merci de préciser un topic pour que je puisse remplacer l'ancien. Référez-vous à !help !topic pour plus de détails.")
+					serv.privmsg(author, "Missing topic. Please type !help !topic for detailed syntax.")
 
 			if message[0] == "!mode":
 				if len(message[1:-1]) > 0:
 					serv.mode(room, message[2] + " " + message[1])
-					serv.privmsg(author, message[1] + " a reçu le mode " + message[2])
+					serv.privmsg(author, message[1] + " got the mode " + message[2])
 				else:
-					serv.privmsg(author, "Syntaxe incorrecte. Référez-vous à !help !mode pour plus de détails.")
+					serv.privmsg(author, "Syntax error. Please type !help !mode for detailed syntax.")
 
 			if message[0] == "!say":
 				if len(message[2:-1]) > 0:
@@ -118,14 +118,14 @@ class Carlos(ircbot.SingleServerIRCBot):
 					serv.privmsg(message[1], bottle)
 					serv.privmsg(author, bottle + "envoyé à " + message[1])
 				else:
-					serv.privmsg(author, "Syntaxe incorrecte. Référez-vous à !help !say pour plus de détails.")
+					serv.privmsg(author, "Syntax error. Please type !help !say detailed syntax.")
 
 			if message[0] == "!nick":
 				if len(message) > 2:
 					serv.nick(message[1])
-					serv.privmsg(author, "Bot renommé en " + message[1])
+					serv.privmsg(author, "New nickname : " + message[1])
 				else:
-					serv.privmsg(author, "Syntaxe incorrecte. Référez-vous à !help !nick pour plus de détails.")
+					serv.privmsg(author, "Syntax error. Please type !help !nick detailed syntax.")
 
 			if message[0] == "!me":
 				if len(message[2:-1]) > 0:
@@ -135,9 +135,9 @@ class Carlos(ircbot.SingleServerIRCBot):
 					if message[1] == "room":
 						message[1] = room
 					serv.action(message[1], bottle)
-					serv.privmsg(author, "L'action a été envoyée sur "+message[1]+" avec comme message: "+bottle)
+					serv.privmsg(author, "Sent on "+message[1]+" with action: "+bottle)
 				else:
-					serv.privmsg(author, "Syntaxe incorrecte. Référez-vous à !help !me pour plus de détails.")
+					serv.privmsg(author, "Syntax error. Please type !help !me detailed syntax.")
 
 			if message[0] == "!notice":
 				if len(message[2:-1]) > 0:
@@ -147,12 +147,12 @@ class Carlos(ircbot.SingleServerIRCBot):
 					if message[1] == "room":
 						message[1] = room
 					serv.notice(message[1], bottle)
-					serv.privmsg(author, bottle + "envoyé en notice à " + message[1])
+					serv.privmsg(author, bottle + "sent as a notice to " + message[1])
 				else:
-					serv.privmsg(author, "Syntaxe incorrecte. Référez-vous à !help !notice pour plus de détails.")
+					serv.privmsg(author, "Syntax error. Please type !help !notice detailed syntax.")
 
 		else:
-			serv.privmsg(author, "Argh, mauvais mot de passe ! :(")
+			serv.privmsg(author, "Wrong password")
 
 	def on_kick(self, serv, ev):
 		serv.join(room)
